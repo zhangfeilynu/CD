@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chinaredstar.cd.pojo.User;
+import com.chinaredstar.cd.pojo.Users2;
 import com.chinaredstar.cd.service.UserService;
 
 /**
@@ -29,6 +30,11 @@ public class IndexController {
 	@GetMapping("/show")
 	public List<User> getUser(int age) {
 		return userService.getUser(age);
+	}
+
+	@GetMapping("/show2")
+	public Users2 getUser2(int id) {
+		return userService.selectByPrimaryKey(id);
 	}
 
 	@RequestMapping("/index")
