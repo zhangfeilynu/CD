@@ -78,7 +78,7 @@ public class IndexController {
 	}
 
 	@RequestMapping("/index")
-	@ResponseBody
+	// @ResponseBody
 	public Map<String, String> index() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "fei.zhang");
