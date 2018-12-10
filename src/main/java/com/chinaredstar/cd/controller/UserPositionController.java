@@ -3,6 +3,8 @@ package com.chinaredstar.cd.controller;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +16,17 @@ import com.chinaredstar.cd.service.UserPositionService;
 @Controller
 public class UserPositionController {
 
+	private final static Logger logger = LoggerFactory.getLogger(UserPositionController.class);
+
 	@Autowired
 	UserPositionService userPositionService;
 
 	@RequestMapping(value = "/mynearby")
 	public String myNearby(Model model, double lon, double lat) {
+
+		// if (lat < -1) {
+		// logger.error("输入错误");
+		// }
 		double r = 6371;// 地球半径千米
 		double dis = 2; // 半径 单位:km
 		double dlng = 2 * Math.asin(Math.sin(dis / (2 * r)) / Math.cos(lat * Math.PI / 180));
@@ -30,6 +38,7 @@ public class UserPositionController {
 		double minlng = lon - dlng;
 		double maxlng = lon + dlng;
 
+		logger.info("整合themeleaf+bootstrap");
 		List<Userposition> list = userPositionService.getVicinity(BigDecimal.valueOf(minlng),
 				BigDecimal.valueOf(maxlng), BigDecimal.valueOf(minlat), BigDecimal.valueOf(maxlat));
 		model.addAttribute("myinfo", list);
