@@ -1,9 +1,13 @@
 package com.chinaredstar.cd.controller;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,6 +94,19 @@ public class IndexController {
 	// @ResponseBody
 	public String index2() {
 		return "hhhhhhhh";
+	}
+
+	@RequestMapping("/export")
+	// @ResponseBody
+	public void export(HttpServletResponse response) throws IOException {
+		// 设置要导出的文件的名字
+		String fileName = "users" + new Date() + ".xls";
+
+		response.setContentType("application/octet-stream");
+		response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+		response.flushBuffer();
+		userService.export().write(response.getOutputStream());
+
 	}
 
 }
