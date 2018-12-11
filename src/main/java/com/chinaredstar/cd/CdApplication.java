@@ -7,8 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 //@SpringBootApplication(scanBasePackages = "{com.chinaredstar}")
-@SpringBootApplication
-@ComponentScan(basePackages = { "com.chinaredstar.cd.controller", "com.chinaredstar.cd.service" })
+@SpringBootApplication(scanBasePackages = { "com.chinaredstar.cd.controller", "com.chinaredstar.cd.service",
+		"com.chinaredstar.cd.task" })
+// @ComponentScan(basePackages = { "com.chinaredstar.cd.controller",
+// "com.chinaredstar.cd.service",
+// "com.chinaredstar.cd.task" })
 @MapperScan(basePackages = { "com.chinaredstar.cd.dao" })
 @EnableScheduling
 public class CdApplication {
