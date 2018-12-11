@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 // @ComponentScan(basePackages = { "com.chinaredstar.cd.controller",
 // "com.chinaredstar.cd.service",
 // "com.chinaredstar.cd.task" })
+// @SpringBootApplication // 不加scanBasePackages，部分接口不能访问
 @MapperScan(basePackages = { "com.chinaredstar.cd.dao" })
 @EnableScheduling
 public class CdApplication {
