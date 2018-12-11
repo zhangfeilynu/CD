@@ -7,12 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 //@SpringBootApplication(scanBasePackages = "{com.chinaredstar}")
-@SpringBootApplication(scanBasePackages = { "com.chinaredstar.cd.controller", "com.chinaredstar.cd.service",
-		"com.chinaredstar.cd.task" })
+//@SpringBootApplication(scanBasePackages = { "com.chinaredstar.cd.controller", "com.chinaredstar.cd.service",
+//		"com.chinaredstar.cd.task" })
 // @ComponentScan(basePackages = { "com.chinaredstar.cd.controller",
 // "com.chinaredstar.cd.service",
 // "com.chinaredstar.cd.task" })
-// @SpringBootApplication // 不加scanBasePackages，部分接口不能访问
+@SpringBootApplication // 不加scanBasePackages
 @MapperScan(basePackages = { "com.chinaredstar.cd.dao" })
 @EnableScheduling
 public class CdApplication {
