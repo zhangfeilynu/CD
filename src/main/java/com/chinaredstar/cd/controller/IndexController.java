@@ -86,4 +86,10 @@ public class IndexController {
 		return map;
 	}
 
+	@RequestMapping("/index2")
+	// @ResponseBody
+	public String index2() {
+		return "hhhhhhhh";
+	}
+
 }
