@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
 			row1.createCell(1).setCellValue(item.getAge());
 			row1.createCell(2).setCellValue(item.getUsername());
 			row1.createCell(3).setCellValue(item.getPhone());
-			row1.createCell(3).setCellValue(item.getEmail());
+			row1.createCell(4).setCellValue(item.getEmail());
 			rowNum++;
 		}
 
